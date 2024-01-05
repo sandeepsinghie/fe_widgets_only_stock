@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="stock-widget-style.css" type='text/css' />
+    <!--jqueryTable assets-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <!--jqueryTable assets-->
+    <script src="stock-widget-script.js"></script>
+</head>
+<body>
+    <div class="stock-widget-main"></div>
+    <!-- <div class="today-commodity-widget"></div> -->
+    <script>
+        var tokenServerKey = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmZUBpbmRpYW5leHByZXNzLmNvbSIsImlhdCI6MTcwNDQzMjQxMywiZXhwIjoxNzA0NDkyODkzfQ.UfOI87R-mhX-ZcBZXPLFiiZDhWVkyMtEWNyPP0Ml8lLCkeK1GJYsN_yW5svXTZ11RNRTriUGpp0TOFWYCNYXhw';
+
+        const stockWidgetOptions = {
+            stockWidgetPlHod: ".stock-widget-main",
+        };
+        const commondityWidgetOptions = {
+            commodityWidgetPlHod: ".today-commodity-widget"
+        };
+        initStockWidget(stockWidgetOptions);
+        //initCommodityWidget(commondityWidgetOptions);
+
+        stockWidget.init(tokenServerKey);
+        
+    </script>
+</body>
+</html>
