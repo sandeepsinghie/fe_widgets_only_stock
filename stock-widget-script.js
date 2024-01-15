@@ -1,8 +1,8 @@
 const stockWidget = {
   token:'',
-  // init:function(token){
-  //  stockWidget.token = token;
-  // },
+  init:function(token){
+   stockWidget.token = token;
+  },
   apiEndPoint: window && window.location && window.location.host 
     === 'www.financialexpress.com'
     ? 'https://api-market.financialexpress.com/finance-api'
@@ -102,7 +102,7 @@ const stockWidget = {
           const url = `https://www.financialexpress.com/market/indian-indices-${exchange}-${index.urlName}-companies-list/`;
   
           return [
-            `<a href="${url}">${name}</a>`,
+            `<a href="${url}" target="_blank">${name}</a>`,
             ltp,
             `<span class="${chgClass}">${chg}</span>`,
             `<span class="${chgPercentClass}">${chgPercent}</span>`,
@@ -131,7 +131,7 @@ const stockWidget = {
           const url = `https://www.financialexpress.com/market/indian-indices-${exchange}-${index.urlName}-companies-list/`;
 
             return [
-              `<a href="${url}">${name}</a>`,
+              `<a href="${url}" target="_blank">${name}</a>`,
               `${ltp}<span>AD Ratio: ${volume}</span>`,
               `<span class="${chgClass}">${chg}<br>
             <b class="${chgPercentClass}">${chgPercent}%</b>`,
@@ -149,7 +149,7 @@ const stockWidget = {
               chgPercent.changePercent < 0 ? "red" : "green";
               const lastIndexValue = value[value.length - 1];
             return [
-              `<a href="${name.link}">${name.label}</a>`,
+              `<a href="${name.link}" target="_blank">${name.label}</a>`,
               ltp.toLocaleString(undefined, { minimumFractionDigits: 2 }),
               `<span class="${chgClass}">${chg.change.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>`,
               `<span class="${chgPercentClass}">${chgPercent.changePercent.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>`,
@@ -165,7 +165,7 @@ const stockWidget = {
               chgPercent.changePercent < 0 ? "red" : "green";
               const lastIndexValueMob = value[value.length - 1];
             return [
-              `<a href="${name.link}">${name.label}</a>`,
+              `<a href="${name.link}"  target="_blank">${name.label}</a>`,
               `${ltp.toLocaleString(undefined, { minimumFractionDigits: 2 })}<span>Vol: ${lastIndexValueMob}</span>`,
               `<span class="${chgClass}">${chg.change.toLocaleString(undefined, { minimumFractionDigits: 2 })}<br>
             <b class="${chgPercentClass}">${chgPercent.changePercent.toLocaleString(undefined, { minimumFractionDigits: 2 })}%</b>`,
@@ -537,6 +537,7 @@ const stockWidget = {
   generateURL: () => {
     const viewAllLink = document.getElementById("view-all-link");
     viewAllLink.href = stockWidget.updateLinkHref();
+    viewAllLink.target= "_blank";
   },
   isMobileDevice : () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
