@@ -1,8 +1,8 @@
 const stockWidget = {
-  token:'',
-  init:function(token){
-   stockWidget.token = token;
-  },
+  // token:'',
+  // init:function(token){
+  //  stockWidget.token = token;
+  // },
   apiEndPoint: window && window.location && window.location.host 
     === 'www.financialexpress.com'
     ? 'https://api-market.financialexpress.com/finance-api'
@@ -95,8 +95,8 @@ const stockWidget = {
           const chgPercent = index["change%"].toLocaleString(undefined, { minimumFractionDigits: 2 });
           const volume = index.adRatio.toLocaleString(undefined, { minimumFractionDigits: 2 });
   
-          const chgClass = chg < 0 ? "red" : "green";
-          const chgPercentClass = chgPercent < 0 ? "red" : "green";
+          const chgClass = index.change < 0 ? "red" : "green";
+          const chgPercentClass = index["change%"] < 0 ? "red" : "green";
           const exchange =
             stockWidget.exchangeValue() === "nse" ? "nse" : "bse";
           const url = `https://www.financialexpress.com/market/indian-indices-${exchange}-${index.urlName}-companies-list/`;
@@ -122,9 +122,9 @@ const stockWidget = {
             const chgPercent = index["change%"].toLocaleString(undefined, { minimumFractionDigits: 2 });
             const volume = index.adRatio.toLocaleString(undefined, { minimumFractionDigits: 2 });
   
-            const chgClass = chg < 0 ? "red" : "green";
+            const chgClass = index.change < 0 ? "red" : "green";
             const chgPercentClass =
-              chgPercent < 0 ? "red" : "green";
+            index["change%"] < 0 ? "red" : "green";
               
             const exchange =
             stockWidget.exchangeValue() === "nse" ? "nse" : "bse";
